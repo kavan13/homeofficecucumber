@@ -27,7 +27,9 @@ public class VisaConfirmationSteps {
     }
 
     @And("^I select reason 'Tourism'$")
-    public void iSelectReasonTourism() {
+
+    public void iSelectReasonTourism() throws InterruptedException {
+        Thread.sleep(1000);
         new ReasonForTravelPage().selectReasonForTravel("Tourism");
     }
 

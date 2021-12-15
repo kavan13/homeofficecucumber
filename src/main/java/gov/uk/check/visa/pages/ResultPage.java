@@ -1,6 +1,8 @@
 package gov.uk.check.visa.pages;
 
 import gov.uk.check.visa.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class ResultPage extends Utility {
+    private static final Logger log = LogManager.getLogger(ResultPage.class.getName());
+
     public ResultPage() {PageFactory.initElements(driver, this);}
 
     @CacheLookup
@@ -20,6 +24,8 @@ public class ResultPage extends Utility {
     WebElement resultText1;
 
     public String getResultMessage(){
+      //  log.info("Geting result Messsage : " +resultMessage.toString());
+
         return resultMessage.getText().trim();
     }
 
@@ -27,6 +33,8 @@ public class ResultPage extends Utility {
         Assert.assertTrue(getResultMessage().equals(expectedMessage), "Message did not match");
     }
     public String getResultMessage2(){
+        log.info("Geting result Messsage2 : " +resultText.toString());
+
         return resultText.getText().trim();
     }
 
@@ -34,6 +42,8 @@ public class ResultPage extends Utility {
         Assert.assertTrue(getResultMessage2().equals(expectedMessage), "Message did not match");
     }
     public String getResultMessage3(){
+        log.info("Geting result Messsage3 : " +resultText1.toString());
+
         return resultText1.getText().trim();
     }
 
